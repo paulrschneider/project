@@ -1,0 +1,64 @@
+import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.File;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Main mainObject = new Main();
+        mainObject.run();
+    }
+
+    private void run() {
+        //declare ArrayList and initialize (final product)
+        ArrayList<Integer> list = new ArrayList<>();
+        //and int which will be the total of all runs
+        ArrayList<Integer> listRunsUpCount = new ArrayList<>();
+        ArrayList<Integer> listRunsDnCount = new ArrayList<>();
+        ArrayList<Integer> listRunsCount = new ArrayList<>();
+
+        try {
+            ArrayList<Integer> fileRead = read("p01-int.txt");
+        } catch () {
+
+        }
+    }
+
+    private ArrayList<Integer> read(String file) throws FileNotFoundException {
+        ArrayList<Integer> array = new ArrayList<>();
+        Scanner scan = new Scanner(file);
+        while (scan.hasNext()) {
+            array.add(scan.nextInt());
+        }
+    }
+
+    private ArrayList<Integer> runCount(ArrayList<Integer> list, int direction) {
+        ArrayList<Integer> count = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            count.add(0);
+        }
+        if (direction == 1) {
+            int k = 0;
+
+            for (int i = 0; i < list.size(); i++) {
+                while (i < list.size() - 1 && list.get(i) < list.get(i + 1)) {
+                    i++;
+                    k++;
+                }
+
+                if (k != 0) {
+                    outputList.set(k, outputList.get(k) + 1);
+                    k = 0;
+                } else {
+                    while (i < list.size() - 1 && list.get(i) > list.get(i + 1)) {
+                        i++;
+                    }
+                    k++;
+                }
+
+            }
+        }
+
+    }
+
+}
